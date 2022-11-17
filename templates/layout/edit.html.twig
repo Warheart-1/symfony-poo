@@ -1,0 +1,15 @@
+{% extends'base.html.twig' %}
+
+
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button>{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+    <a href="{{ path('home') }}">Retour à la liste</a>
+    {{ include('layout/delete.html.twig') }}
+
+{% endblock %}
+

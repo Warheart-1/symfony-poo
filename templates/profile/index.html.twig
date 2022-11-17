@@ -1,20 +1,14 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
 
 {% block body %}
-<div class="container">
 
-    <p> List of Article </p>
-
-    {% if app.user %}
-        <a href="{{ path('create_post') }}">New post</a>
-    {% endif %}
-
-    {% for post in posts %}
+{% for post in posts %}
     
         <h2>
             {{ post.title }}
             {% if app.user %}
-               {# <a href="{{ path('edit_post', {'id': post.id}) }}">Edit</a> #}
+                <a href="{{ path('app_profile_edit', {'id': post.id}) }}">Edit</a> #}
                {# <a href="{{ path('get_post', {'id': post.id}) }}">Show</a> #}
             {% endif %}
 
@@ -29,7 +23,5 @@
         {% endif %}
 
     {% endfor %}
-    
-</div>  
 
 {% endblock %}

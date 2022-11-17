@@ -19,6 +19,10 @@ class Post
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Content = null;
 
+    #[ORM\ManyToOne(inversedBy: 'posts')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?User $Author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Post
     public function setContent(?string $Content): self
     {
         $this->Content = $Content;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->Author;
+    }
+
+    public function setAuthor(?User $Author): self
+    {
+        $this->Author = $Author;
 
         return $this;
     }

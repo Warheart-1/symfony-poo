@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+{% for user in users %}
+    <h1>{{ user.name }}</h1>
+    <p>{{ user.email }}</p>
+    <a href="{{ path('app_user_edit', {'id': user.id}) }}">Edit</a>
+{% endfor %}
+
+    <div class="container">
+        <a href="{{ path('app_user_create') }}">Create</a>
+    </div>
+{% endblock %}

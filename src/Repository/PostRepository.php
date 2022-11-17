@@ -48,6 +48,15 @@ class PostRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function findPostWithLimit(int $limit) : array
+    {
+        $qb = $this->createQueryBuilder('p')
+        ->select('p')
+        ->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */
